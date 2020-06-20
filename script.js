@@ -57,11 +57,13 @@ var lengthCheck = function () {
 //function to get password types 
 
 var typeCheck = function () {
-  var lcCheck = window.confirm("Would you like to have lowercase letters in your password?");
-  passwordType.lowercase = lcCheck;
 
   var ucCheck = window.confirm("Would you like to have uppercase letters in your password?");
   passwordType.lowercase = ucCheck;
+
+  var lcCheck = window.confirm("Would you like to have lowercase letters in your password?");
+  passwordType.lowercase = lcCheck;
+
 
   var numCheck = window.confirm("Would you like to have numbers in your password?");
   passwordType.lowercase = numCheck;
@@ -77,9 +79,40 @@ var typeCheck = function () {
     window.alert("Please choose at least one type");
     typeCheck();
   }
-  
+  genPass();
 }
-lengthCheck(); 
+
+// generae password
+
+var genPass = function () {
+
+  var upper = "QWERTYUIOPASDFGHJKLZXCVBNM";
+  var lower = "qwertyuiopasdfghjklzxcvbnm";
+  var numb = "1234567890";
+  var schar = "!@#$%&*?><|}{+_-=`~;:";
+  var passcomb = "";
+
+  //create the string with the combination of chosen characters 
+
+  if (passwordType.lowercase) {
+    passcomb = passcomb + upper;
+  }
+  if (passwordType.uppercase) {
+    passcomb = passcomb + lower;
+  }
+  if (passwordType.numeric) {
+    passcomb = passcomb + numb
+  }
+  if (passwordType.specialchar) {
+    passcomb = passcomb + schar;
+  }
+
+  console.log(passcomb);
+}
+
+
+
+lengthCheck();
 
 
 
