@@ -51,7 +51,7 @@ var lengthCheck = function () {
   length = eval(length);
 
   //YVD: string might fail to convert. you should check if conversion was successful:
-  if (!isNaN(length)){
+  if (isNaN(length)){
     window.alert("Length can only be a number");
     lengthCheck();
   }
